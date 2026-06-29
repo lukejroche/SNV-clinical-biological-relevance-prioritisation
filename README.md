@@ -88,9 +88,9 @@ The following ACMG/AMP criteria cannot be evaluated from VCF data alone and are 
 
 
 ### Reference files required
-Multi-sample VCF + TBI User-provided (e.g. 1000 Genomes chr22)
-ClinVar VCF + TBI [NCBI ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/)
-gnomAD exomes VCF + TBI [gnomAD v4.1](https://gnomad.broadinstitute.org/downloads)
+- Multi-sample VCF + TBI User-provided (e.g. 1000 Genomes chr22)
+- ClinVar VCF + TBI [NCBI ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/)
+- gnomAD exomes VCF + TBI [gnomAD v4.1](https://gnomad.broadinstitute.org/downloads)
 
 ## Installation
  
