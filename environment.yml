@@ -1,0 +1,13 @@
+name: variantDx
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - nextflow>=23.0
+  - bcftools>=1.17
+  - htslib>=1.17
+  - snpeff>=5.1
+  - python>=3.9
+  - pip:
+    - pandas>=1.5

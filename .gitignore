@@ -1,0 +1,52 @@
+# Nextflow
+work/
+results/
+.nextflow/
+.nextflow*
+.nextflow.log*
+.nextflow.pid
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large reference/genomic data
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.vcf.gz.csi
+*.bcf
+*.bam
+*.bai
+*.bgz
+*.bgz.tbi
+*.fa
+*.fasta
+*.fai
+*.csi
+
+
+# Pipeline outputs
+all_ranked_variants.tsv
+ranked_variants.tsv
+top_variants.tsv
+variants.tsv
+snpEff_summary.html
+snpEff_genes.txt
+
+# Windows metadata
+*:Zone.Identifier
+
+# OS files
+.DS_Store
+Thumbs.db
