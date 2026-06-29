@@ -1,7 +1,7 @@
-**Variant Priositisation Pipeline**
-This is a nextflow workflow which takes variant called information in the form of a .VCF file and outputs a list of scored variants as a .tsv file in the results/ folder.
-This workflow was developed using 1000 Genome Project chromome 22 data which can be found here https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/. This data is not linked to phenotypes due to data security protocols, thus scoring is only related to the characteristis given to that variant from snpeff, ClinVar and gnomAD annotations and is not associated with a phenotype. The workflow was also developed on a limited computer system so RAM and cpu constraints have been built into the nextflow.config file.
-The pipeline is as follows:
+# **Variant Priositisation Pipeline**
+- This is a nextflow workflow which takes variant called information in the form of a .VCF file and outputs a list of scored variants as a .tsv file in the results/ folder.
+- This workflow was developed using 1000 Genome Project chromome 22 data which can be found here https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/. This data is not linked to phenotypes due to data security protocols, thus scoring is only related to the characteristis given to that variant from snpeff, ClinVar and gnomAD annotations and is not associated with a phenotype. The workflow was also developed on a limited computer system so RAM and cpu constraints have been built into the nextflow.config file.
+## The Pipeline
 ```
 Multi-sample VCF
       │
@@ -36,10 +36,10 @@ results/ranked/
  
 ### Quality filters (filter_variants)
 GQ and MQ missing from the test data however ideal scenario:
-| FORMAT/GQ | > 20 | Genotype quality
-| FORMAT/DP | > 10 | Read depth
-| MQ | > 40 | Mapping quality
-| INFO/AF | < 1 | (AF=1 present in all samples)
+| FORMAT/GQ | > 20 | Genotype quality |
+| FORMAT/DP | > 10 | Read depth |
+| MQ | > 40 | Mapping quality |
+| INFO/AF | < 1 | (AF=1 present in all samples) |
  
 ### Population frequency filter (gnomad)
 Variants with gnomAD AF ≥ 0.001 (0.1%) are removed prior to scoring. This threshold aligns with PM2 evidence in the ACMG/AMP framework — variants above this frequency are unlikely to be causative for rare Mendelian disease. Variants absent from gnomAD are retained and scored positively.
@@ -76,11 +76,12 @@ The following ACMG/AMP criteria cannot be evaluated from VCF data alone and are 
 - **BP3** — requires repeat region annotation
 
 ### Score tiers
-Tier 1 — ClinVar Confirmed | ClinVar Pathogenic exact match | Urgent clinical review |
-Tier 1 — High Priority | Total score ≥ 15 | Clinical review |
-Tier 2 — Moderate Priority | Total score 8–14 | Clinical review |
-Tier 3 — Low Priority | Total score 3–7 | Deprioritised |
-Tier 4 — Likely Benign | Total score < 3 | Not reported |
+| Score | Why? | Priority |
+| Tier 1 — ClinVar Confirmed | ClinVar Pathogenic exact match | Urgent clinical review |
+| Tier 1 — High Priority | Total score ≥ 15 | Clinical review |
+| Tier 2 — Moderate Priority | Total score 8–14 | Clinical review |
+| Tier 3 — Low Priority | Total score 3–7 | Deprioritised |
+| Tier 4 — Likely Benign | Total score < 3 | Not reported |
 
 
 ### Reference files required
@@ -123,17 +124,17 @@ These are healthy population controls — no clinical phenotype is associated wi
 ### `{sample}_ranked.tsv`
 Full scored variant table, sorted by total score descending.
  
-Column | Description
-chr, pos, ref, alt | Variant coordinates 
-gene | Gene symbol (SnpEff) 
-hgvs_c, hgvs_p | HGVS nomenclature 
-effect, impact | SnpEff consequence terms 
-af | gnomAD allele frequency 
-clin_sig, disease | ClinVar classification and disease name 
-af_score, impact_score, effect_score, clinvar_score | Per-dimension scores 
-total_score | Sum of all dimension scores 
-tier | Prioritisation tier 
-*_reason | Verbose string for each scoring decision
+| Column | Description |
+| chr, pos, ref, alt | Variant coordinates |
+| gene | Gene symbol (SnpEff) |
+| hgvs_c, hgvs_p | HGVS nomenclature |
+| effect, impact | SnpEff consequence terms |
+| af | gnomAD allele frequency |
+| clin_sig, disease | ClinVar classification and disease name |
+| af_score, impact_score, effect_score, clinvar_score | Per-dimension scores |
+| total_score | Sum of all dimension scores |
+| tier | Prioritisation tier |
+| *_reason | Verbose string for each scoring decision |
  
 
 ## Limitations
