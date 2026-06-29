@@ -36,6 +36,8 @@ results/ranked/
  
 ### Quality filters (filter_variants)
 GQ and MQ missing from the test data however ideal scenario:
+| Value | Cut-off | Meaning |
+|-------|---------|---------|
 | FORMAT/GQ | > 20 | Genotype quality |
 | FORMAT/DP | > 10 | Read depth |
 | MQ | > 40 | Mapping quality |
@@ -77,6 +79,7 @@ The following ACMG/AMP criteria cannot be evaluated from VCF data alone and are 
 
 ### Score tiers
 | Score | Why? | Priority |
+|-------|------|----------|
 | Tier 1 — ClinVar Confirmed | ClinVar Pathogenic exact match | Urgent clinical review |
 | Tier 1 — High Priority | Total score ≥ 15 | Clinical review |
 | Tier 2 — Moderate Priority | Total score 8–14 | Clinical review |
@@ -125,6 +128,7 @@ These are healthy population controls — no clinical phenotype is associated wi
 Full scored variant table, sorted by total score descending.
  
 | Column | Description |
+|--------|-------------|
 | chr, pos, ref, alt | Variant coordinates |
 | gene | Gene symbol (SnpEff) |
 | hgvs_c, hgvs_p | HGVS nomenclature |
