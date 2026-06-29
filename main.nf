@@ -138,7 +138,7 @@ process gnomad {
     tabix -f -p vcf ${sample}.gnomad.vcf.gz
 
     bcftools filter \
-      -i 'INFO/AF<0.01 || INFO/AF="."' \
+      -i 'INFO/AF<0.001 || INFO/AF="."' \
       ${sample}.gnomad.vcf.gz \
       -Oz -o ${sample}.gnomad.filtered.vcf.gz
 
